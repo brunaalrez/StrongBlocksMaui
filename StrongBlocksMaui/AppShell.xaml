@@ -4,12 +4,51 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:StrongBlocksMaui"
-    Shell.FlyoutBehavior="Disabled"
     Title="StrongBlocksMaui">
 
+    <FlyoutItem Title="Usuários" >
+        
+    
     <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+        Title="Lista de Usuários"
+        ContentTemplate="{DataTemplate local:ListagemUsuarios}"
+        Route="ListagemUsuarios" />
+
+    <ShellContent
+        Title="Cadastro de Usuários"
+        ContentTemplate="{DataTemplate local:CadastroUsuarios}"
+        Route="CadastroUsuarios" />
+
+    </FlyoutItem>
+
+    <FlyoutItem Title="Insumos" >
+
+
+        <ShellContent
+        Title="Lista de Insumos"
+        ContentTemplate="{DataTemplate local:ListagemInsumos}"
+        Route="ListagemInsumos" />
+
+        <ShellContent
+        Title="Cadastro de Insumos"
+        ContentTemplate="{DataTemplate local:CadastroInsumo}"
+        Route="CadastroInsumo" />
+
+    </FlyoutItem>
+
+    <FlyoutItem Title="Produtos" >
+
+
+        <ShellContent
+        Title="Lista de Produtos"
+        ContentTemplate="{DataTemplate local:ListagensProdutos }"
+        Route="ListagemProdutos" />
+
+        <ShellContent
+        Title="Cadastro de Produto"
+        ContentTemplate="{DataTemplate local:CadastroProdutos}"
+        Route="CadastroProdutos" />
+
+    </FlyoutItem>
 
 </Shell>
