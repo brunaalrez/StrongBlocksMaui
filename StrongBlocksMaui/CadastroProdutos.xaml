@@ -12,13 +12,6 @@
 
         <Button Text="Salvar" Clicked="Salvar_Clicked"/>
 
-        <ListView x:Name="Lista">
-            <ListView.ItemTemplate>
-                <DataTemplate >
-                    <TextCell Text="{Binding tipo_insumo}" Detail="{Binding quantidade}" />
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
 
     </VerticalStackLayout>
 </ContentPage>

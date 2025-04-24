@@ -6,8 +6,6 @@ public partial class CadastroProdutos : ContentPage
 	{
         InitializeComponent();
 
-        Produto p = new Produto();
-        Lista.ItemsSource = p.BuscaTodos();
     }
 
     private void Salvar_Clicked(object sender, EventArgs e)
@@ -17,7 +15,6 @@ public partial class CadastroProdutos : ContentPage
         p.quantidade = int.Parse(EntryQuantidade.Text);
         p.Insere();
 
-        Lista.ItemsSource = null;
-        Lista.ItemsSource = p.BuscaTodos();
+        
     }
 }
