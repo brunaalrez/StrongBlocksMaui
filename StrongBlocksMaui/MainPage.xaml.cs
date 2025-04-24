@@ -2,23 +2,23 @@
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
-
         public MainPage()
         {
             InitializeComponent();
+
+            Produto p = new Produto();
+            Lista.ItemsSource = p.BuscaTodos();
         }
 
-        private void OnCounterClicked(object sender, EventArgs e)
+        private void Salvar_Clicked(object sender, EventArgs e)
         {
-            count++;
+            Produto p = new Produto();
+            p.tipo_insumo = EntryIsumo.Text;
+            p.quantidade = int.Parse(EntryIsumo.Text);
+            p.Insere();
 
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
-
-            SemanticScreenReader.Announce(CounterBtn.Text);
+            Lista.ItemsSource = null;
+            Lista.ItemsSource = p.BuscaTodos();
         }
     }
 
