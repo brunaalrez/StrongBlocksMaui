@@ -4,9 +4,15 @@
              x:Class="StrongBlocksMaui.CadastroInsumo"
              Title="CadastroInsumo">
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <Label Text="Digite o nome do insumo"/>
+        <Entry x:Name="EntryNome"/>
+        <Label Text="Digite a quantidade"/>
+        <Entry x:Name="EntryQuantidade"/>
+        <Label Text="Digite o nome do fornecedor"/>
+        <Entry x:Name="EntryFornecedor"/>
+
+        <Button Text="Salvar" Clicked="Salvar_Clicked"/>
+        
+
     </VerticalStackLayout>
 </ContentPage>

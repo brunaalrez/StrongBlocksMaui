@@ -15,6 +15,7 @@ public partial class CadastroProdutos : ContentPage
         Produto p = new Produto();
         p.tipo_insumo = EntryIsumo.Text;
         p.quantidade = int.Parse(EntryQuantidade.Text);
+        p.tipo_produto = "Produto";
         p.Insere();
 
         Lista.ItemsSource = null;
