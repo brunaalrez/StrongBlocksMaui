@@ -1,11 +1,11 @@
-namespace StrongBlocksMaui
-{
-    public CadastroInsumo()
-    {
-        InitializeComponent();
+namespace StrongBlocksMaui;
 
-    
-    }
+public partial class CadastroInsumo : ContentPage
+{
+	public CadastroInsumo()
+	{
+		InitializeComponent();
+	}
 
     private async void Salvar_Clicked(object sender, EventArgs e)
     {
@@ -23,4 +23,10 @@ namespace StrongBlocksMaui
         await Shell.Current.GoToAsync("//ListagemInsumos");
 
     }
+
+    /*
+     
+     
+     */
+
 }

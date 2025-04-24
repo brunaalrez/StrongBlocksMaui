@@ -1,28 +1,22 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="StrongBlocksMaui.MainPage">
-
+             x:Class="StrongBlocksMaui.CadastroInsumo"
+             Title="CadastroInsumo">
     <ScrollView>
 
         <VerticalStackLayout Padding="30,0" Spacing="25">
-            <Label Text="Coloque o insumo" />
-            <Entry x:Name="EntryIsumo"/>
+            <Label Text="Digite o nome do insumo:" />
+            <Entry x:Name="EntryNome"/>
 
-            <Label Text="Coloque a quantidade" />
+            <Label Text="Digite a quantidade" />
             <Entry x:Name="EntryQuantidade"/>
+
+            <Label Text="Digite o nome do fornecedor" />
+            <Entry x:Name="EntryFornecedor"/>
 
             <Button Text="Salvar" Clicked="Salvar_Clicked"/>
 
-            <ListView x:Name="Lista">
-                <ListView.ItemTemplate>
-                    <DataTemplate >
-                        <TextCell Text="{Binding tipo_insumo}" Detail="{Binding quantidade}" />
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-
         </VerticalStackLayout>
     </ScrollView>
-
 </ContentPage>
