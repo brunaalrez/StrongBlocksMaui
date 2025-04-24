@@ -1,24 +1,26 @@
 namespace StrongBlocksMaui
 {
-    public partial class MainPage : ContentPage
+    public CadastroInsumo()
     {
-        public MainPage()
-        {
-            InitializeComponent();
+        InitializeComponent();
 
-            Produto p = new Produto();
-            Lista.ItemsSource = p.BuscaTodos();
-        }
+    
+    }
 
-        private void Salvar_Clicked(object sender, EventArgs e)
-        {
-            Produto p = new Produto();
-            p.tipo_insumo = EntryInsumo.Text;
-            p.quantidade = int.Parse(EntryInsumo.Text);
-            p.Insere();
+    private async void Salvar_Clicked(object sender, EventArgs e)
+    {
+        Produto p = new Produto();
+        p.tipo_insumo = EntryNome.Text;
+        p.quantidade = int.Parse(EntryQuantidade.Text);
+        p.fornecedor = EntryFornecedor.Text;
+        p.tipo_produto = "insumo";
+        p.Insere();
 
-            Lista.ItemsSource = null;
-            Lista.ItemsSource = p.BuscaTodos();
-        }
+        EntryNome.Text = "";
+        EntryQuantidade.Text = "";
+        EntryFornecedor.Text = "";
+
+        await Shell.Current.GoToAsync("//ListagemInsumos");
+
     }
 }

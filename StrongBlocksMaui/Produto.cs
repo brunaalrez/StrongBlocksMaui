@@ -46,6 +46,25 @@ namespace StrongBlocksMaui
 
             return lista;
         }
+
+        public List<Produto> BuscaTodosInsumos()
+        {
+            DataTable dt = conexao.ExecutaSelect("SELECT * FROM estoque WHERE tipo_de_produto = 'insumo';");
+            List<Produto> lista = new List<Produto>();
+
+            foreach (DataRow linha in dt.Rows)
+            {
+                Produto p = new Produto();
+                p.id = int.Parse(linha["id"].ToString());
+                p.tipo_insumo = linha["tipo_de_insumo"].ToString();
+                p.quantidade = int.Parse(linha["quantidade"].ToString());
+                p.fornecedor = linha["fornecedor"].ToString();
+                p.tipo_produto = linha["tipo_de_produto"].ToString();
+                lista.Add(p);
+            }
+
+            return lista;
+        }
     }
     
 }

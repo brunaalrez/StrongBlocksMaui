@@ -6,4 +6,13 @@ public partial class ListagemInsumos : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+        Produto produto = new Produto();
+        Lista.ItemsSource = null;
+        Lista.ItemsSource = produto.BuscaTodosInsumos();
+    }
+
 }

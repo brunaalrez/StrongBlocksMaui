@@ -14,39 +14,38 @@ namespace StrongBlocksMaui
         public int quantidade { get; set; }
         public string fornecedor { get; set; }
         public string tipo_produto { get; set; }
-        public DateTime data { get; set; }
 
         Conexao conexao { get; set; }
 
-        public Produto()
+        public Estoque()
         {
             conexao = new Conexao();
         }
         public void Insere()
         {
-            string query = $"INSERT INTO produtos (nome, preco) VALUES('{tipo_insumo}','{quantidade}', {data}, '{fornecedor}', '{tipo_produto}');";
+            string query = $"INSERT INTO estoque (tipo_de_insumo, quantidade, fornecedor, tipo_de_produto) VALUES('{tipo_insumo}','{quantidade}','{fornecedor}', '{tipo_produto}');";
             conexao.ExecutaComando(query);
-            Console.WriteLine("Produto inserido com sucesso");
+            Console.WriteLine("Estoque inserido com sucesso");
         }
 
-        public List<Produto> BuscaTodos()
+        public List<Estoque> BuscaTodos()
         {
-            DataTable dt = conexao.ExecutaSelect("SELECT * FROM produtos;");
-            List<Produto> lista = new List<Produto>();
+            DataTable dt = conexao.ExecutaSelect("SELECT * FROM estoque;");
+            List<Estoque> lista = new List<Estoque>();
 
             foreach (DataRow linha in dt.Rows)
             {
-                Produto p = new Produto();
+                Estoque p = new Estoque();
                 p.id = int.Parse(linha["id"].ToString());
                 p.tipo_insumo = linha["tipo_de_insumo"].ToString();
                 p.quantidade = int.Parse(linha["quantidade"].ToString());
                 p.fornecedor = linha["fornecedor"].ToString();
                 p.tipo_produto = linha["tipo_de_produto"].ToString();
-                p.data = DateTime.Parse(linha["data"].ToString());
                 lista.Add(p);
             }
 
             return lista;
         }
     }
+
 }
