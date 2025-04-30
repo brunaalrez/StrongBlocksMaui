@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StrongBlocksMaui.Tela_inicial"
+             Title="Tela_inicial">
+    <VerticalStackLayout BackgroundColor="DimGray">
+        <VerticalStackLayout Spacing="15"  >
+            <Border Background="White" Margin="20">
+                <VerticalStackLayout>
+                    <Label Text="Bem-Vindo ao Sistema Strong Blocks" TextColor="DarkSlateGrey" FontAttributes="Bold" HorizontalOptions="Center" FontSize="Title"/>
+                    <Image Source="strongblocks.jpg" WidthRequest="100"/>
+                    <Label Text="Click aqui para ir para o site" TextColor="DarkSlateGrey" FontAttributes="Bold" HorizontalOptions="Center" FontSize="Title"/>
+                    <Button Text="Click Aqui" BackgroundColor="LightGoldenrodYellow" TextColor="DarkSlateGrey" BorderColor="Black" BorderWidth="1.5"/>
+                </VerticalStackLayout>
+            </Border>
+        </VerticalStackLayout>
+        
+    </VerticalStackLayout>
+</ContentPage>

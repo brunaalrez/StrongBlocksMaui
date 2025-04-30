@@ -6,6 +6,12 @@
     xmlns:local="clr-namespace:StrongBlocksMaui"
     Title="StrongBlocksMaui">
 
+
+    <ShellContent
+        Title="Inicio"
+        ContentTemplate="{DataTemplate local:Tela_inicial}"
+        Route="Tela_inicial" />
+
     <FlyoutItem Title="Usuários" >
         
     
