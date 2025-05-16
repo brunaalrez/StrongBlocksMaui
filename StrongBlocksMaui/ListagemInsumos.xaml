@@ -2,30 +2,66 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="StrongBlocksMaui.ListagemInsumos"
-             Title="ListagemInsumos">
+             Title="Listagem de Insumos">
     <VerticalStackLayout>
-        <ListView x:Name="Lista">
+
+        <!-- Cabeçalho -->
+        <Grid Padding="10" BackgroundColor="#f0f0f0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Label Text="Insumo" 
+                   FontAttributes="Bold" 
+                   HorizontalTextAlignment="Start"
+                   Grid.Column="0" />
+
+            <Label Text="Quantidade" 
+                   FontAttributes="Bold" 
+                   HorizontalTextAlignment="Center"
+                   Grid.Column="1" />
+
+            <Label Text="Fornecedor" 
+                   FontAttributes="Bold" 
+                   HorizontalTextAlignment="End"
+                   Grid.Column="2" />
+        </Grid>
+
+        <!-- Lista de dados -->
+        <ListView x:Name="Lista"
+                  SeparatorVisibility="Default"
+                  HasUnevenRows="True">
             <ListView.ItemTemplate>
-                <DataTemplate >
+                <DataTemplate>
                     <ViewCell>
                         <Grid Padding="10">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
-                            </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
 
-                            <Label Text="{Binding tipo_insumo}" Grid.Row="0" Grid.Column="0"/>
-                            <Label Text="{Binding quantidade}" Grid.Row="0" Grid.Column="1"/>
-                            <Label Text="{Binding fornecedor}" Grid.Row="0" Grid.Column="2"/>
+                            <Label Text="{Binding tipo_insumo}" 
+                                   Grid.Column="0"
+                                   HorizontalTextAlignment="Start"
+                                   VerticalTextAlignment="Center"/>
 
+                            <Label Text="{Binding quantidade}" 
+                                   Grid.Column="1"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"/>
+
+                            <Label Text="{Binding fornecedor}" 
+                                   Grid.Column="2"
+                                   HorizontalTextAlignment="End"
+                                   VerticalTextAlignment="Center"/>
                         </Grid>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+
     </VerticalStackLayout>
 </ContentPage>
