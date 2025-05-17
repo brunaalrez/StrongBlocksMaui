@@ -13,7 +13,7 @@
         private void Salvar_Clicked(object sender, EventArgs e)
         {
             Produto p = new Produto();
-            p.tipo_insumo = EntryIsumo.Text;
+            p.nome = EntryIsumo.Text;
             p.quantidade = int.Parse(EntryIsumo.Text);
             p.Insere();
 

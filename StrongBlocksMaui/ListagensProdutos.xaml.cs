@@ -8,7 +8,7 @@ public partial class ListagensProdutos : ContentPage
 
         Produto p = new Produto();
         Lista.ItemsSource = null;
-        Lista.ItemsSource = p.BuscaTodos();
+        Lista.ItemsSource = p.BuscaTodosProdutos();
     }
 
     protected override void OnAppearing()
@@ -16,6 +16,6 @@ public partial class ListagensProdutos : ContentPage
         base.OnAppearing();
         Produto p = new Produto();
         Lista.ItemsSource = null;
-        Lista.ItemsSource = p.BuscaTodos();
+        Lista.ItemsSource = p.BuscaTodosProdutos();
     }
 }

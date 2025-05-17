@@ -10,10 +10,10 @@ public partial class CadastroInsumo : ContentPage
     private async void Salvar_Clicked(object sender, EventArgs e)
     {
         Produto p = new Produto();
-        p.tipo_insumo = EntryNome.Text;
+        p.nome = EntryNome.Text;
         p.quantidade = int.Parse(EntryQuantidade.Text);
         p.fornecedor = EntryFornecedor.Text;
-        p.tipo_produto = "insumo";
+        p.tipo = "insumo";
         p.Insere();
 
         EntryNome.Text = "";

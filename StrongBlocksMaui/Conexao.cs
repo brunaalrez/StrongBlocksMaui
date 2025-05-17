@@ -8,7 +8,7 @@ namespace StrongBlocksMaui
 {
     class Conexao
     {
-        string dadosConexao = "server=localhost;user=root;database=strong_blocks;port=3306;password=";
+        string dadosConexao = "server=localhost;user=root;database=strongblocksproject;port=3306;password=";
 
         public int ExecutaComando(string query)
         {
@@ -23,19 +23,29 @@ namespace StrongBlocksMaui
             return linhasAfetadas;
         }
 
+
+
         public DataTable ExecutaSelect(string query)
         {
-            //Criar e abre con~exão
-            MySqlConnection conexao = new MySqlConnection(dadosConexao);
-            conexao.Open();
-
-            //rodar a query 
-            MySqlCommand comando = new MySqlCommand(query, conexao);
-            MySqlDataAdapter dados = new MySqlDataAdapter(comando);
             DataTable dt = new DataTable();
-            dados.Fill(dt);
-            conexao.Close();
+
+            try
+            {
+                using (MySqlConnection conexao = new MySqlConnection(dadosConexao))
+                {
+                    conexao.Open();
+                    MySqlCommand comando = new MySqlCommand(query, conexao);
+                    MySqlDataAdapter dados = new MySqlDataAdapter(comando);
+                    dados.Fill(dt);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Erro ao executar SELECT: " + ex.Message);
+            }
+
             return dt;
         }
+
     }
 }

@@ -43,7 +43,7 @@
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
 
-                            <Label Text="{Binding tipo_insumo}" 
+                            <Label Text="{Binding nome}" 
                                    Grid.Column="0"
                                    HorizontalTextAlignment="Start"
                                    VerticalTextAlignment="Center"/>

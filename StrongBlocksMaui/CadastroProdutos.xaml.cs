@@ -11,9 +11,9 @@ public partial class CadastroProdutos : ContentPage
     private void Salvar_Clicked(object sender, EventArgs e)
     {
         Produto p = new Produto();
-        p.tipo_insumo = EntryIsumo.Text;
+        p.nome = EntryIsumo.Text;
         p.quantidade = int.Parse(EntryQuantidade.Text);
-        p.tipo_produto = "Produto";
+        p.tipo = "Produto";
         p.Insere();
 
         

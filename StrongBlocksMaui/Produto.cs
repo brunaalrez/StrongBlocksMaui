@@ -10,10 +10,11 @@ namespace StrongBlocksMaui
     internal class Produto
     {
         public int id { get; set; }
-        public string tipo_insumo { get; set; }
+        public string nome { get; set; }
         public int quantidade { get; set; }
         public string fornecedor { get; set; }
-        public string tipo_produto { get; set; }
+        public string tipo { get; set; }
+        public string categoria { get; set; }
 
         Conexao conexao { get; set; }
 
@@ -23,7 +24,7 @@ namespace StrongBlocksMaui
         }
         public void Insere()
         {
-            string query = $"INSERT INTO estoque (tipo_de_insumo, quantidade, fornecedor, tipo_de_produto) VALUES('{tipo_insumo}','{quantidade}','{fornecedor}', '{tipo_produto}');";
+            string query = $"INSERT INTO estoque (nome, quantidade, fornecedor, tipo, categoria) VALUES('{nome}','{quantidade}','{fornecedor}','{tipo}','{categoria}');";
             conexao.ExecutaComando(query);
             Console.WriteLine("Produto inserido com sucesso");
         }
@@ -37,10 +38,11 @@ namespace StrongBlocksMaui
             {
                 Produto p = new Produto();
                 p.id = int.Parse(linha["id"].ToString());
-                p.tipo_insumo = linha["tipo_de_insumo"].ToString();
+                p.nome = linha["nome"].ToString();
                 p.quantidade = int.Parse(linha["quantidade"].ToString());
                 p.fornecedor = linha["fornecedor"].ToString();
-                p.tipo_produto = linha["tipo_de_produto"].ToString();
+                p.tipo = linha["tipo"].ToString();
+                p.categoria = linha["categoria"].ToString();
                 lista.Add(p);
             }
 
@@ -49,17 +51,37 @@ namespace StrongBlocksMaui
 
         public List<Produto> BuscaTodosInsumos()
         {
-            DataTable dt = conexao.ExecutaSelect("SELECT * FROM estoque WHERE tipo_de_produto = 'insumo';");
+            DataTable dt = conexao.ExecutaSelect("SELECT * FROM estoque WHERE tipo = 'insumo';");
             List<Produto> lista = new List<Produto>();
 
             foreach (DataRow linha in dt.Rows)
             {
                 Produto p = new Produto();
                 p.id = int.Parse(linha["id"].ToString());
-                p.tipo_insumo = linha["tipo_de_insumo"].ToString();
+                p.nome = linha["nome"].ToString();
                 p.quantidade = int.Parse(linha["quantidade"].ToString());
                 p.fornecedor = linha["fornecedor"].ToString();
-                p.tipo_produto = linha["tipo_de_produto"].ToString();
+                p.tipo = linha["tipo"].ToString();
+                p.categoria = linha["categoria"].ToString();
+                lista.Add(p);
+            }
+
+            return lista;
+        }
+
+        public List<Produto> BuscaTodosProdutos()
+        {
+            DataTable dt = conexao.ExecutaSelect("SELECT * FROM estoque WHERE tipo = 'produto';");
+            List<Produto> lista = new List<Produto>();
+
+            foreach (DataRow linha in dt.Rows)
+            {
+                Produto p = new Produto();
+                p.id = int.Parse(linha["id"].ToString());
+                p.nome = linha["nome"].ToString();
+                p.quantidade = int.Parse(linha["quantidade"].ToString());
+                p.tipo = linha["tipo"].ToString();
+                p.categoria = linha["categoria"].ToString();
                 lista.Add(p);
             }
 
