@@ -86,7 +86,10 @@ namespace StrongBlocksMaui
             }
 
             return lista;
+
+
+
         }
     }
-    
+
 }
