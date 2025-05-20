@@ -12,20 +12,6 @@
         ContentTemplate="{DataTemplate local:Tela_inicial}"
         Route="Tela_inicial" />
 
-    <FlyoutItem Title="Usuários" >
-        
-    
-    <ShellContent
-        Title="Lista de Usuários"
-        ContentTemplate="{DataTemplate local:ListagemUsuarios}"
-        Route="ListagemUsuarios" />
-
-    <ShellContent
-        Title="Cadastro de Usuários"
-        ContentTemplate="{DataTemplate local:CadastroUsuarios}"
-        Route="CadastroUsuarios" />
-
-    </FlyoutItem>
 
     <FlyoutItem Title="Insumos" >
 
@@ -38,6 +24,11 @@
         <ShellContent
         Title="Cadastro de Insumos"
         ContentTemplate="{DataTemplate local:CadastroInsumo}"
+        Route="CadastroInsumo" />
+
+        <ShellContent
+        Title="Remove Insumos"
+        ContentTemplate="{DataTemplate local:RemoverInsumo}"
         Route="CadastroInsumo" />
 
     </FlyoutItem>
@@ -54,6 +45,11 @@
         Title="Cadastro de Produto"
         ContentTemplate="{DataTemplate local:CadastroProdutos}"
         Route="CadastroProdutos" />
+
+        <ShellContent
+        Title="Remove Produtos"
+        ContentTemplate="{DataTemplate local:RemoverProduto}"
+        Route="Cadastroprodutos" />
 
     </FlyoutItem>
 

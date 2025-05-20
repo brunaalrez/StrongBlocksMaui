@@ -5,15 +5,22 @@
              Title="Remover Insumo">
 
     <ScrollView>
-        <VerticalStackLayout Padding="30,0" Spacing="25">
+    <VerticalStackLayout Padding="20" Spacing="15">
 
-            <Label Text="Selecione o insumo para remover:" />
-            <Picker x:Name="PickerInsumos" SelectedIndexChanged="PickerInsumos_SelectedIndexChanged" />
+        <Label Text="Nome do Insumo"
+               FontAttributes="Bold" />
+        <Entry x:Name="EntryNome"
+               Placeholder="Digite o nome do insumo" />
 
-            <Label Text="Fornecedor do insumo:" />
-            <Entry x:Name="EntryFornecedor" IsReadOnly="True"/>
+        <Label Text="Digite a quantidade" />
+        <Entry x:Name="EntryQuantidade"/>
 
-            <Button BackgroundColor="Red" TextColor="White" Text="Remover" Clicked="Remover_Clicked"/>
-        </VerticalStackLayout>
+        <Button Text="Remover Insumo"
+                BackgroundColor="Red"
+                TextColor="White"
+                Clicked="Remover_Clicked" />
+
+    </VerticalStackLayout>
     </ScrollView>
+
 </ContentPage>

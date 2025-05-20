@@ -70,6 +70,9 @@
 	  <MauiXaml Update="ListagemInsumos.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="RemoverProduto.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Tela_inicial.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

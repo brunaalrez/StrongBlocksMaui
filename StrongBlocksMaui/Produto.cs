@@ -22,11 +22,26 @@ namespace StrongBlocksMaui
         {
             conexao = new Conexao();
         }
+
         public void Insere()
         {
             string query = $"INSERT INTO estoque (nome, quantidade, fornecedor, tipo, categoria) VALUES('{nome}','{quantidade}','{fornecedor}','{tipo}','{categoria}');";
             conexao.ExecutaComando(query);
             Console.WriteLine("Produto inserido com sucesso");
+        }
+
+        public void Atualiza()
+        {
+            string query = $"UPDATE estoque SET quantidade = quantidade + {quantidade} WHERE nome = '{nome}';";
+            conexao.ExecutaComando(query);
+            Console.WriteLine("Produto atualizado com sucesso");
+        }
+
+        public void Remove()
+        {
+            string query = $"DELETE FROM estoque WHERE nome = '{nome}' AND tipo = 'insumo';";
+            conexao.ExecutaComando(query);
+            Console.WriteLine("Produto removido com sucesso");
         }
 
         public List<Produto> BuscaTodos()
@@ -86,10 +101,61 @@ namespace StrongBlocksMaui
             }
 
             return lista;
+        }
 
+        public bool ExisteInsumo(string nomeInsumo)
+        {
+            string query = $"SELECT COUNT(*) FROM estoque WHERE nome = '{nomeInsumo}' AND tipo = 'insumo';";
+            DataTable dt = conexao.ExecutaSelect(query);
 
+            if (dt.Rows.Count > 0)
+            {
+                int count = Convert.ToInt32(dt.Rows[0][0]);
+                return count > 0;
+            }
 
+            return false;
+        }
+
+        public int BuscaQuantidade(string nomeInsumo)
+        {
+            string query = $"SELECT quantidade FROM estoque WHERE nome = '{nomeInsumo}' AND tipo = 'insumo';";
+            DataTable dt = conexao.ExecutaSelect(query);
+
+            if (dt.Rows.Count > 0)
+            {
+                return Convert.ToInt32(dt.Rows[0]["quantidade"]);
+            }
+
+            return 0;
+        }
+
+        public void RemoverQuantidade()
+        {
+            string query = $"UPDATE estoque SET quantidade = quantidade - {quantidade} WHERE nome = '{nome}' AND tipo = 'insumo';";
+            conexao.ExecutaComando(query);
+        }
+
+        // ✅ NOVOS MÉTODOS PARA PRODUTOS:
+
+        public bool ExisteProduto(string nomeProduto)
+        {
+            string query = $"SELECT COUNT(*) FROM estoque WHERE nome = '{nomeProduto}' AND tipo = 'produto';";
+            DataTable dt = conexao.ExecutaSelect(query);
+            return dt.Rows.Count > 0 && Convert.ToInt32(dt.Rows[0][0]) > 0;
+        }
+
+        public int BuscaQuantidadeProduto(string nomeProduto)
+        {
+            string query = $"SELECT quantidade FROM estoque WHERE nome = '{nomeProduto}' AND tipo = 'produto';";
+            DataTable dt = conexao.ExecutaSelect(query);
+            return dt.Rows.Count > 0 ? Convert.ToInt32(dt.Rows[0]["quantidade"]) : 0;
+        }
+
+        public void RemoverQuantidadeProduto()
+        {
+            string query = $"UPDATE estoque SET quantidade = quantidade - {quantidade} WHERE nome = '{nome}' AND tipo = 'produto';";
+            conexao.ExecutaComando(query);
         }
     }
-
 }
