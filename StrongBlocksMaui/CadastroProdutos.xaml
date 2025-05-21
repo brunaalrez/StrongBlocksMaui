@@ -10,7 +10,7 @@
         <Label Text="Coloque a quantidade" />
         <Entry x:Name="EntryQuantidade"/>
 
-        <Button Text="Salvar" Clicked="Salvar_Clicked"/>
+        <Button Text="Salvar" Clicked="Salvar_Clicked" Background="Yellow" TextColor="Black"/>
 
 
     </VerticalStackLayout>
