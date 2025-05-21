@@ -10,11 +10,11 @@ namespace StrongBlocksMaui
     internal class Produto
     {
         public int id { get; set; }
-        public string nome { get; set; }
+        public string? nome { get; set; }
         public int quantidade { get; set; }
-        public string fornecedor { get; set; }
-        public string tipo { get; set; }
-        public string categoria { get; set; }
+        public string? fornecedor { get; set; }
+        public string? tipo { get; set; }
+        public string? categoria { get; set; }
 
         Conexao conexao { get; set; }
 
@@ -25,7 +25,7 @@ namespace StrongBlocksMaui
 
         public void Insere()
         {
-            string query = $"INSERT INTO estoque (nome, quantidade, fornecedor, tipo, categoria) VALUES('{nome}','{quantidade}','{fornecedor}','{tipo}','{categoria}');";
+            string query = $"INSERT INTO estoque (nome, quantidade, fornecedor, tipo, categoria) VALUES('{nome}', '{quantidade}', '{fornecedor}', '{tipo}', '{categoria}');";
             conexao.ExecutaComando(query);
             Console.WriteLine("Produto inserido com sucesso");
         }
@@ -52,9 +52,9 @@ namespace StrongBlocksMaui
             foreach (DataRow linha in dt.Rows)
             {
                 Produto p = new Produto();
-                p.id = int.Parse(linha["id"].ToString());
+                p.id = Convert.ToInt32(linha["id"]);
                 p.nome = linha["nome"].ToString();
-                p.quantidade = int.Parse(linha["quantidade"].ToString());
+                p.quantidade = Convert.ToInt32(linha["quantidade"]);
                 p.fornecedor = linha["fornecedor"].ToString();
                 p.tipo = linha["tipo"].ToString();
                 p.categoria = linha["categoria"].ToString();
@@ -72,9 +72,9 @@ namespace StrongBlocksMaui
             foreach (DataRow linha in dt.Rows)
             {
                 Produto p = new Produto();
-                p.id = int.Parse(linha["id"].ToString());
+                p.id = Convert.ToInt32(linha["id"]);
                 p.nome = linha["nome"].ToString();
-                p.quantidade = int.Parse(linha["quantidade"].ToString());
+                p.quantidade = Convert.ToInt32(linha["quantidade"]);
                 p.fornecedor = linha["fornecedor"].ToString();
                 p.tipo = linha["tipo"].ToString();
                 p.categoria = linha["categoria"].ToString();
@@ -92,9 +92,9 @@ namespace StrongBlocksMaui
             foreach (DataRow linha in dt.Rows)
             {
                 Produto p = new Produto();
-                p.id = int.Parse(linha["id"].ToString());
+                p.id = Convert.ToInt32(linha["id"]);
                 p.nome = linha["nome"].ToString();
-                p.quantidade = int.Parse(linha["quantidade"].ToString());
+                p.quantidade = Convert.ToInt32(linha["quantidade"]);
                 p.tipo = linha["tipo"].ToString();
                 p.categoria = linha["categoria"].ToString();
                 lista.Add(p);
@@ -135,8 +135,6 @@ namespace StrongBlocksMaui
             string query = $"UPDATE estoque SET quantidade = quantidade - {quantidade} WHERE nome = '{nome}' AND tipo = 'insumo';";
             conexao.ExecutaComando(query);
         }
-
-        // ✅ NOVOS MÉTODOS PARA PRODUTOS:
 
         public bool ExisteProduto(string nomeProduto)
         {

@@ -9,14 +9,17 @@ public partial class RemoverInsumo : ContentPage
 
     private async void Remover_Clicked(object sender, EventArgs e)
     {
-        string nomeInsumo = EntryNome.Text?.Trim();
-        string quantidadeTexto = EntryQuantidade.Text?.Trim();
+        string? nomeInsumoRaw = EntryNome.Text?.Trim();
+        string? quantidadeTextoRaw = EntryQuantidade.Text?.Trim();
 
-        if (string.IsNullOrWhiteSpace(nomeInsumo) || string.IsNullOrWhiteSpace(quantidadeTexto))
+        if (string.IsNullOrWhiteSpace(nomeInsumoRaw) || string.IsNullOrWhiteSpace(quantidadeTextoRaw))
         {
             await DisplayAlert("Erro", "Preencha todos os campos.", "OK");
             return;
         }
+
+        string nomeInsumo = nomeInsumoRaw!;
+        string quantidadeTexto = quantidadeTextoRaw!;
 
         if (!int.TryParse(quantidadeTexto, out int quantidadeRemover) || quantidadeRemover <= 0)
         {

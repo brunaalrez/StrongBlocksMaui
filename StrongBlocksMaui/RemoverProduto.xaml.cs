@@ -2,21 +2,24 @@ namespace StrongBlocksMaui;
 
 public partial class RemoverProduto : ContentPage
 {
-	public RemoverProduto()
-	{
-		InitializeComponent();
-	}
+    public RemoverProduto()
+    {
+        InitializeComponent();
+    }
 
     private async void RemoveProduto_Clicked(object sender, EventArgs e)
     {
-        string nomeProduto = EntryNome.Text?.Trim();
-        string quantidadeProduto = EntryQuantidade.Text?.Trim();
+        string? nomeProdutoRaw = EntryNome.Text?.Trim();
+        string? quantidadeProdutoRaw = EntryQuantidade.Text?.Trim();
 
-        if (string.IsNullOrWhiteSpace(nomeProduto) || string.IsNullOrWhiteSpace(quantidadeProduto))
+        if (string.IsNullOrWhiteSpace(nomeProdutoRaw) || string.IsNullOrWhiteSpace(quantidadeProdutoRaw))
         {
             await DisplayAlert("Erro", "Preencha todos os campos.", "OK");
             return;
         }
+
+        string nomeProduto = nomeProdutoRaw!;
+        string quantidadeProduto = quantidadeProdutoRaw!;
 
         if (!int.TryParse(quantidadeProduto, out int quantidadeRemover) || quantidadeRemover <= 0)
         {
