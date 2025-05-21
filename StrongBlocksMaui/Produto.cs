@@ -140,7 +140,7 @@ namespace StrongBlocksMaui
 
         public bool ExisteProduto(string nomeProduto)
         {
-            string query = $"SELECT COUNT(*) FROM estoque WHERE nome = '{nomeProduto}' AND tipo = 'produto';";
+            string query = $"SELECT quantidade FROM estoque WHERE nome = '{nomeProduto}' AND tipo = 'produto';";
             DataTable dt = conexao.ExecutaSelect(query);
             return dt.Rows.Count > 0 && Convert.ToInt32(dt.Rows[0][0]) > 0;
         }
