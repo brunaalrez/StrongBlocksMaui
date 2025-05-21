@@ -4,37 +4,41 @@
              x:Class="StrongBlocksMaui.Tela_inicial"
              Title="Tela Inicial">
     <ScrollView>
-        <VerticalStackLayout BackgroundColor="DimGray" Padding="20" Spacing="20">
-            <Frame BackgroundColor="White"
-                   CornerRadius="20"
-                   Padding="20"
-                   HasShadow="True">
+        <VerticalStackLayout BackgroundColor="#2E2E2E" Padding="20" Spacing="20">
+            <Frame BackgroundColor="#FFFFFF"
+                   CornerRadius="25"
+                   Padding="25"
+                   HasShadow="True"
+                   BorderColor="#FFD700">
                 <VerticalStackLayout Spacing="20">
                     <Label Text="Bem-vindo ao Sistema Strong Blocks"
-                           TextColor="DarkSlateGray"
+                           TextColor="#1E3A5F"
                            FontAttributes="Bold"
                            HorizontalOptions="Center"
-                           FontSize="24"/>
-                    
-                    <Image Source="strongblocks.jpg"
-                           HeightRequest="200"
-                           HorizontalOptions="Center"
-                           Aspect="AspectFit"/>
+                           FontSize="26"/>
 
-                    <Label Text="Clique abaixo para visitar o nosso site"
-                           TextColor="DarkSlateGray"
-                           FontAttributes="Bold"
+                    <Image Source="strongblocks.jpg"
+                           HeightRequest="220"
+                           HorizontalOptions="Center"
+                           Aspect="AspectFit"
+                           BackgroundColor="#F0F0F0"
+                           Margin="10"/>
+
+                    <Label Text="Gerencie sua produção e estoque com facilidade."
+                           TextColor="#3A3A3A"
+                           FontAttributes="Italic"
                            HorizontalOptions="Center"
                            FontSize="18"/>
-
+                    <!--
                     <Button Text="Acessar Site"
-                            BackgroundColor="LightGoldenrodYellow"
-                            TextColor="DarkSlateGray"
-                            BorderColor="Black"
-                            BorderWidth="1.5"
-                            CornerRadius="10"
-                            HorizontalOptions="Center"
-                            WidthRequest="200"/>
+                            BackgroundColor="#FFD700"
+                            TextColor="Black"
+                            FontAttributes="Bold"
+                            CornerRadius="15"
+                            WidthRequest="200"
+                            HeightRequest="50"
+                            HorizontalOptions="Center"/>
+                    -->
                 </VerticalStackLayout>
             </Frame>
         </VerticalStackLayout>
