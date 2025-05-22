@@ -4,8 +4,8 @@
              x:Class="StrongBlocksMaui.CadastroProdutos"
              Title="Cadastro Produtos">
     <VerticalStackLayout Padding="30,0" Spacing="25">
-        <Label Text="Coloque o insumo" />
-        <Entry x:Name="EntryIsumo"/>
+        <Label Text="Coloque o nome do produto" />
+        <Entry x:Name="EntryNomeProduto"/>
 
         <Label Text="Coloque a quantidade" />
         <Entry x:Name="EntryQuantidade"/>
