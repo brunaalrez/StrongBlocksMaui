@@ -34,9 +34,36 @@ public partial class CadastroProdutos : ContentPage
             return;
         }
 
+        int id_produto = 1;
+        if (nomeProduto.ToLower() == "bloco a")
+            id_produto = 4;
+        if (nomeProduto.ToLower() == "meio bloco a")
+            id_produto = 5;
+        if (nomeProduto.ToLower() == "canaleta a")
+            id_produto = 6;
+        if (nomeProduto.ToLower() == "meia canaleta a")
+            id_produto = 7;
+        if (nomeProduto.ToLower() == "bloco b")
+            id_produto = 8;
+        if (nomeProduto.ToLower() == "meio bloco b")
+            id_produto = 9;
+        if (nomeProduto.ToLower() == "canaleta b")
+            id_produto = 10;
+        if (nomeProduto.ToLower() == "meia canaleta b")
+            id_produto = 11;
+        if (nomeProduto.ToLower() == "bloco c")
+            id_produto = 12;
+        if (nomeProduto.ToLower() == "meio bloco c")
+            id_produto = 13;
+        if (nomeProduto.ToLower() == "canaleta c")
+            id_produto = 14;
+        if (nomeProduto.ToLower() == "meia canaleta c")
+            id_produto = 15;
+
+        p.id = id_produto;
         p.nome = nomeProduto;
         p.quantidade = quantidade;
-        p.tipo = "produto";
+        p.tipo = "Produto";
         p.Atualiza();
 
         // Limpa os campos após salvar
