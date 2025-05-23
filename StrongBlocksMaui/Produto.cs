@@ -32,7 +32,8 @@ namespace StrongBlocksMaui
 
         public void Insere_movimentacao(int id_insumo_produto, decimal quantidade, string tipo_movimentacao)
         {
-            string query = $"INSERT INTO movimentacao (id_insumo_produto, quantidade, tipo_movimentacao, tipo_i_p, date) VALUES({id_insumo_produto}, {quantidade}, '{tipo_movimentacao}','Insumo', NOW());";
+            
+            string query = $"INSERT INTO movimentacao (id_insumo_produto, quantidade, tipo_movimentacao, tipo_i_p, date) VALUES({id_insumo_produto}, {quantidade}, '{tipo_movimentacao}','{this.tipo}', NOW());";
             conexao.ExecutaComando(query);
             Console.WriteLine("Movimentação executada com sucesso");
         }

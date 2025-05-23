@@ -34,7 +34,7 @@ public partial class CadastroProdutos : ContentPage
             return;
         }
 
-        int id_produto = 1;
+        int id_produto = 0;
         if (nomeProduto.ToLower() == "bloco a")
             id_produto = 4;
         if (nomeProduto.ToLower() == "meio bloco a")
