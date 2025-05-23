@@ -34,9 +34,18 @@ public partial class CadastroInsumo : ContentPage
             return;
         }
 
+        int id_produto = 1;
+        if (nomeInsumo.ToLower() == "areia")
+            id_produto = 1;
+        if (nomeInsumo.ToLower() == "cimento")
+            id_produto = 2;
+        if (nomeInsumo.ToLower() == "po de pedra")
+            id_produto = 3;
+
+        p.id = id_produto;
         p.nome = nomeInsumo;
         p.quantidade = quantidade;
-        p.tipo = "insumo";
+        p.tipo = "Insumo";
         p.Atualiza();
 
         // Limpa os campos após salvar

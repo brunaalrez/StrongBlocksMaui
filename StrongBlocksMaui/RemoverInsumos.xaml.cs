@@ -50,6 +50,15 @@ public partial class RemoverInsumo : ContentPage
 
         if (!confirmar) return;
 
+        int id_produto = 1;
+        if (nomeInsumo.ToLower() == "areia")
+            id_produto = 1;
+        if (nomeInsumo.ToLower() == "cimento")
+            id_produto = 2;
+        if (nomeInsumo.ToLower() == "po de pedra")
+            id_produto = 3;
+
+        p.id = id_produto;
         p.nome = nomeInsumo;
         p.quantidade = quantidadeRemover;
         p.RemoverQuantidade(); // Nova função que subtrai

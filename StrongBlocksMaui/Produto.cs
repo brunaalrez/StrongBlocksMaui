@@ -30,11 +30,19 @@ namespace StrongBlocksMaui
             Console.WriteLine("Produto inserido com sucesso");
         }
 
+        public void Insere_movimentacao(int id_insumo_produto, decimal quantidade, string tipo_movimentacao)
+        {
+            string query = $"INSERT INTO movimentacao (id_insumo_produto, quantidade, tipo_movimentacao, tipo_i_p, date) VALUES({id_insumo_produto}, {quantidade}, '{tipo_movimentacao}','Insumo', NOW());";
+            conexao.ExecutaComando(query);
+            Console.WriteLine("Movimentação executada com sucesso");
+        }
+
         public void Atualiza()
         {
             string query = $"UPDATE estoque SET quantidade = quantidade + {quantidade} WHERE nome = '{nome}';";
             conexao.ExecutaComando(query);
             Console.WriteLine("Produto atualizado com sucesso");
+            Insere_movimentacao(id, quantidade, "Entrada");
         }
 
         public void Remove()
@@ -42,6 +50,7 @@ namespace StrongBlocksMaui
             string query = $"DELETE FROM estoque WHERE nome = '{nome}' AND tipo = 'insumo';";
             conexao.ExecutaComando(query);
             Console.WriteLine("Produto removido com sucesso");
+            
         }
 
         public List<Produto> BuscaTodos()
@@ -134,6 +143,7 @@ namespace StrongBlocksMaui
         {
             string query = $"UPDATE estoque SET quantidade = quantidade - {quantidade} WHERE nome = '{nome}' AND tipo = 'insumo';";
             conexao.ExecutaComando(query);
+            Insere_movimentacao(id, quantidade, "Saída");
         }
 
         public bool ExisteProduto(string nomeProduto)
