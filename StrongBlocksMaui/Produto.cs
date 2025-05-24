@@ -165,6 +165,7 @@ namespace StrongBlocksMaui
         {
             string query = $"UPDATE estoque SET quantidade = quantidade - {quantidade} WHERE nome = '{nome}' AND tipo = 'produto';";
             conexao.ExecutaComando(query);
+            Insere_movimentacao(id, quantidade, "Saída");
         }
     }
 }

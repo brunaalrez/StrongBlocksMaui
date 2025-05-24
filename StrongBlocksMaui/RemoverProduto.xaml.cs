@@ -50,7 +50,7 @@ public partial class RemoverProduto : ContentPage
 
         if (!confirmar) return;
 
-        int id_produto = 1;
+        int id_produto = 0;
         if (nomeProduto.ToLower() == "bloco a")
             id_produto = 4;
         if (nomeProduto.ToLower() == "meio bloco a")
@@ -79,6 +79,7 @@ public partial class RemoverProduto : ContentPage
         p.id = id_produto;
         p.nome = nomeProduto;
         p.quantidade = quantidadeRemover;
+        p.tipo = "Produto";
         p.RemoverQuantidadeProduto(); // Nova função que subtrai
 
         await DisplayAlert("Sucesso", $"Removido {quantidadeRemover} do produto '{nomeProduto}'.", "OK");
