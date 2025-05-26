@@ -8,7 +8,7 @@ namespace StrongBlocksMaui
 {
     class Conexao
     {
-        string dadosConexao = "server=localhost;user=root;database=strongblocksproject;port=3306;password=";
+        string dadosConexao = "server=10.60.44.62;user=root;database=strongblocksproject;port=3306;password=senac123";
 
         public int ExecutaComando(string query)
         {
