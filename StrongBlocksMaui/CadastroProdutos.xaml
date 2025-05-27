@@ -3,15 +3,22 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="StrongBlocksMaui.CadastroProdutos"
              Title="Cadastro Produtos">
+
     <VerticalStackLayout Padding="30,0" Spacing="25">
+
         <Label Text="Coloque o nome do produto" />
-        <Entry x:Name="EntryNomeProduto"/>
+        <Entry x:Name="EntryNomeProduto"
+               Placeholder="Ex.: Bloco A" />
 
         <Label Text="Coloque a quantidade" />
-        <Entry x:Name="EntryQuantidade"/>
+        <Entry x:Name="EntryQuantidade"
+               Placeholder="Ex.: 10"
+               Keyboard="Numeric"/>
 
-        <Button Text="Salvar" Clicked="Salvar_Clicked" Background="Yellow" TextColor="Black"/>
-
+        <Button Text="Salvar"
+                Clicked="Salvar_Clicked"
+                BackgroundColor="Yellow"
+                TextColor="Black"/>
 
     </VerticalStackLayout>
 </ContentPage>

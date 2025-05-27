@@ -2,10 +2,9 @@ namespace StrongBlocksMaui;
 
 public partial class CadastroProdutos : ContentPage
 {
-	public CadastroProdutos()
-	{
+    public CadastroProdutos()
+    {
         InitializeComponent();
-
     }
 
     private async void Salvar_Clicked(object sender, EventArgs e)
@@ -19,7 +18,11 @@ public partial class CadastroProdutos : ContentPage
             return;
         }
 
-        int quantidade = int.Parse(quantidadeTexto);
+        if (!int.TryParse(quantidadeTexto, out int quantidade))
+        {
+            await DisplayAlert("Erro", "Quantidade inválida. Digite um número inteiro.", "OK");
+            return;
+        }
 
         Produto p = new Produto();
 
@@ -30,31 +33,28 @@ public partial class CadastroProdutos : ContentPage
             return;
         }
 
-        int id_produto = 0;
-        if (nomeProduto.ToLower() == "bloco a")
-            id_produto = 4;
-        if (nomeProduto.ToLower() == "meio bloco a")
-            id_produto = 5;
-        if (nomeProduto.ToLower() == "canaleta a")
-            id_produto = 6;
-        if (nomeProduto.ToLower() == "meia canaleta a")
-            id_produto = 7;
-        if (nomeProduto.ToLower() == "bloco b")
-            id_produto = 8;
-        if (nomeProduto.ToLower() == "meio bloco b")
-            id_produto = 9;
-        if (nomeProduto.ToLower() == "canaleta b")
-            id_produto = 10;
-        if (nomeProduto.ToLower() == "meia canaleta b")
-            id_produto = 11;
-        if (nomeProduto.ToLower() == "bloco c")
-            id_produto = 12;
-        if (nomeProduto.ToLower() == "meio bloco c")
-            id_produto = 13;
-        if (nomeProduto.ToLower() == "canaleta c")
-            id_produto = 14;
-        if (nomeProduto.ToLower() == "meia canaleta c")
-            id_produto = 15;
+        int id_produto = nomeProduto.ToLower() switch
+        {
+            "bloco a" => 4,
+            "meio bloco a" => 5,
+            "canaleta a" => 6,
+            "meia canaleta a" => 7,
+            "bloco b" => 8,
+            "meio bloco b" => 9,
+            "canaleta b" => 10,
+            "meia canaleta b" => 11,
+            "bloco c" => 12,
+            "meio bloco c" => 13,
+            "canaleta c" => 14,
+            "meia canaleta c" => 15,
+            _ => 0
+        };
+
+        if (id_produto == 0)
+        {
+            await DisplayAlert("Erro", $"O nome do produto '{nomeProduto}' não é válido.", "OK");
+            return;
+        }
 
         p.id = id_produto;
         p.nome = nomeProduto;
@@ -66,7 +66,8 @@ public partial class CadastroProdutos : ContentPage
         EntryNomeProduto.Text = string.Empty;
         EntryQuantidade.Text = string.Empty;
 
-        await Shell.Current.GoToAsync("//ListagemProdutos");
+        await DisplayAlert("Sucesso", "Produto atualizado com sucesso.", "OK");
 
+        await Shell.Current.GoToAsync("//ListagemProdutos");
     }
 }
