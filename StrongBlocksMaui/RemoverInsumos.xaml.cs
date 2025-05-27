@@ -61,6 +61,7 @@ public partial class RemoverInsumo : ContentPage
         p.id = id_produto;
         p.nome = nomeInsumo;
         p.quantidade = quantidadeRemover;
+        p.tipo = "Insumo";
         p.RemoverQuantidade(); // Nova função que subtrai
 
         await DisplayAlert("Sucesso", $"Removido {quantidadeRemover} do insumo '{nomeInsumo}'.", "OK");
