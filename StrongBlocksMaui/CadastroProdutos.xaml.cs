@@ -19,11 +19,7 @@ public partial class CadastroProdutos : ContentPage
             return;
         }
 
-        if (!int.TryParse(quantidadeTexto, out int quantidade))
-        {
-            await DisplayAlert("Erro", "Quantidade inválida.", "OK");
-            return;
-        }
+        int quantidade = int.Parse(quantidadeTexto);
 
         Produto p = new Produto();
 
