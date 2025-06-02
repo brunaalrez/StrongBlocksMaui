@@ -8,10 +8,11 @@
             <Label Text="Nome do Produto"
             FontAttributes="Bold" />
             <Entry x:Name="EntryNome"
-            Placeholder="Digite o nome do produto" />
+                   Placeholder="Ex.: Bloco A"/>
 
             <Label Text="Digite a quantidade" />
-            <Entry x:Name="EntryQuantidade"/>
+            <Entry x:Name="EntryQuantidade"
+                   Placeholder="Ex.: 10 "/>
 
             <Button Text="Remover Produto"
             BackgroundColor="Red"

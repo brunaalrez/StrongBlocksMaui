@@ -10,10 +10,11 @@
         <Label Text="Nome do Insumo"
                FontAttributes="Bold" />
         <Entry x:Name="EntryNome"
-               Placeholder="Digite o nome do insumo" />
+               Placeholder="Ex.: Areia" />
 
         <Label Text="Digite a quantidade" />
-        <Entry x:Name="EntryQuantidade"/>
+        <Entry x:Name="EntryQuantidade"
+               Placeholder="Ex.: 10"/>
 
         <Button Text="Remover Insumo"
                 BackgroundColor="Red"

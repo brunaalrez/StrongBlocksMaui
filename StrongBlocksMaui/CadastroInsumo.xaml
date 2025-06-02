@@ -7,10 +7,13 @@
 
         <VerticalStackLayout Padding="30,0" Spacing="25">
             <Label Text="Digite o nome do insumo:" />
-            <Entry x:Name="EntryNome"/>
+            <Entry x:Name="EntryNome"
+                   Placeholder="Ex.: Areia"/>
+            
 
             <Label Text="Digite a quantidade" />
-            <Entry x:Name="EntryQuantidade"/>
+            <Entry x:Name="EntryQuantidade"
+                   Placeholder="Ex.: 10"/>
 
             <Button BackgroundColor="Yellow" TextColor="Black"  Text="Salvar" Clicked="Salvar_Clicked"/>
 
